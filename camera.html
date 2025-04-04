@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals3.css" />
+    <link rel="stylesheet" href="style3.css" />
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="div">
+        <div class="navbar">
+          <div class="ellipse"></div>
+          <div class="text-wrapper">HOME</div>
+          <div class="text-wrapper-2">HOME</div>
+          <div class="text-wrapper-3">HOME</div>
+          <div class="text-wrapper-4">HOME</div>
+          <div class="text-wrapper-5">HOME</div>
+        </div>
+        <div class="frame">
+            <video id="camera-feed" autoplay playsinline></video>
+        </div>
+        <div class="frame-2">
+          <div class="text-wrapper-6">Choose from your wardrobe!</div>
+            <div class="group">
+                <button class="overlap-group"><img class="img" src="hood.jpeg" /></button>
+            </div>
+            <div class="overlap-wrapper">
+                <button class="overlap-group"><img class="img" src="mshoes3.jpeg" /></button>
+              </div>
+            <div class="overlap-group-wrapper">
+                <button class="overlap-group"><img class="img" src="glasses2.jpeg" /></button>
+              </div>
+            <div class="group-2">
+                <button class="overlap-group"><img class="img" src="top.jpeg" /></button>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Enable camera feed
+        const video = document.getElementById('camera-feed');
+    
+        async function enableCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Camera access denied", err);
+            }
+        }
+    
+        // Call functions on page load
+        window.onload = function () {
+            enableCamera();
+            initializeCarousel('carousel1');
+            initializeCarousel('carousel2');
+        };
+    
+        function initializeCarousel(carouselId) {
+            let currentIndex = 0;
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+    
+            const innerContainer = carousel;
+            const images = innerContainer.querySelectorAll('img');
+            const totalImages = images.length;
+    
+            const prevButton = carousel.parentElement.querySelector('.prev');
+            const nextButton = carousel.parentElement.querySelector('.next');
+    
+            function updateCarousel() {
+                const offset = -currentIndex * 300; // Adjust width of images
+                innerContainer.style.transform = `translateX(${offset}px)`;
+            }
+    
+            nextButton.addEventListener("click", () => {
+                if (currentIndex < totalImages - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop back to first image
+                }
+                updateCarousel();
+            });
+    
+            prevButton.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = totalImages - 1; // Loop back to last image
+                }
+                updateCarousel();
+            });
+    
+            // Ensure proper styling
+            innerContainer.style.display = "flex";
+            innerContainer.style.transition = "transform 0.5s ease-in-out";
+            innerContainer.style.width = `${totalImages * 300}px`; // Adjust based on image width
+        }
+    </script>
+
+  </body>
+</html>
