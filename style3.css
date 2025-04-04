@@ -1,24 +1,22 @@
 .desktop {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
-  }
-  
-  .desktop .div {
-    background-color: #ffffff;
-    width: 1440px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     height: 1456px;
+    align-items: flex-start;
+    gap: 10px;
     position: relative;
+    background-color: #ffffff;
   }
   
   .desktop .navbar {
-    position: absolute;
-    width: 1440px;
+    position: relative;
+    width: 100%;
     height: 100px;
-    top: 0;
-    left: 0;
+    font-family: "Holtwood One SC", serif;
+    font-weight: 400;
+    font-style: normal;
   }
   
   .desktop .ellipse {
@@ -36,7 +34,6 @@
     width: 100px;
     top: 34px;
     left: 148px;
-    font-family: "Holtwood One SC-Regular";
     font-weight: 400;
     color: #000957;
     font-size: 24px;
@@ -45,11 +42,10 @@
   }
   
   .desktop .text-wrapper-2 {
-    left: 724px;
+    left: 292px;
     position: absolute;
     width: 100px;
     top: 34px;
-    font-family: "Holtwood One SC-Regular";
     font-weight: 400;
     color: #000957;
     font-size: 24px;
@@ -58,11 +54,10 @@
   }
   
   .desktop .text-wrapper-3 {
-    left: 292px;
+    left: 436px;
     position: absolute;
     width: 100px;
     top: 34px;
-    font-family: "Holtwood One SC-Regular";
     font-weight: 400;
     color: #000957;
     font-size: 24px;
@@ -71,11 +66,10 @@
   }
   
   .desktop .text-wrapper-4 {
-    left: 436px;
+    left: 580px;
     position: absolute;
     width: 100px;
     top: 34px;
-    font-family: "Holtwood One SC-Regular";
     font-weight: 400;
     color: #000957;
     font-size: 24px;
